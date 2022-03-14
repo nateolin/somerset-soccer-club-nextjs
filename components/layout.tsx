@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ReactPropTypes } from 'react'
 import Head from 'next/head'
 import FooterComponent from './footer'
 import HeaderComponent from './header'
 
 export const siteTitle = 'Somerset Soccer Club'
 
-const Layout = (children: React.ReactNode) => {
+const Layout = ({ children }: any) => {
   return (
     <div>
       <Head>

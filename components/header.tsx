@@ -1,15 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import sscLogo from '../assets/sscLogo.jpg'
 
 const HeaderComponent = () => {
   return (
     <div className="px-5vw py-9 lg:py-12">
       <nav className="max-w-8xl mx-auto flex items-center justify-between">
         <Link href="/">
-          <div className="flex items-center">
+          <a className="flex items-center">
             <Image
-              src={sscLogo}
+              src="/images/sscLogo.jpg"
               alt="Somerset Soccer Logo"
               width="100"
               height="100"
@@ -20,22 +19,22 @@ const HeaderComponent = () => {
                 Somerset Soccer Club
               </div>
             </div>
-          </div>
+          </a>
         </Link>
         <div className="hidden lg:flex">
           <div className="flex items-center justify-center font-medium">
             <div className="px-5">
               <Link href="/about">
-                <div className="delay-50 text-lg text-slate-600 duration-200 hover:text-red-600">
+                <a className="delay-50 text-lg text-slate-600 duration-200 hover:text-red-600">
                   About Us
-                </div>
+                </a>
               </Link>
             </div>
             <div className="px-5">
               <Link href="/rec">
-                <div className="delay-50 text-lg text-slate-600 duration-200 hover:text-red-600">
+                <a className="delay-50 text-lg text-slate-600 duration-200 hover:text-red-600">
                   Rec Soccer
-                </div>
+                </a>
               </Link>
             </div>
             <div className="px-5">
