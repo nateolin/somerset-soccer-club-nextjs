@@ -1,11 +1,15 @@
-import React, { ReactPropTypes } from 'react'
+import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import FooterComponent from './footer'
 import HeaderComponent from './header'
 
 export const siteTitle = 'Somerset Soccer Club'
 
-const Layout = ({ children }: any) => {
+interface AuxProps {
+  children: ReactNode
+}
+
+const Layout = ({children}: AuxProps) => {
   return (
     <div>
       <Head>
