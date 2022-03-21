@@ -10,8 +10,8 @@ const HeaderComponent = () => {
             <Image
               src="/images/sscLogo.jpg"
               alt="Somerset Soccer Logo"
-              width="100"
-              height="100"
+              width={120}
+              height={100}
             />
 
             <div className="px-4 text-2xl text-slate-600">
