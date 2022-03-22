@@ -1,9 +1,12 @@
+import type { NextPage } from 'next'
 import { Layout } from '../components/layout'
 
-export default function Register() {
+const Register: NextPage = () => {
   return (
     <Layout>
-      <div>Register</div>
+      <div className="">Register</div>
     </Layout>
   )
 }
+
+export default Register
