@@ -1,6 +1,7 @@
+import type { NextPage } from 'next'
 import { Layout } from '../components/layout'
 
-export default function Rec() {
+const Rec: NextPage = () => {
   return (
     <Layout>
       <div className="mx-10vw relative">
@@ -112,3 +113,5 @@ export default function Rec() {
     </Layout>
   )
 }
+
+export default Rec

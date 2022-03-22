@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import type { NextPage } from 'next'
 import Image from 'next/image'
 import { Layout } from '../components/layout'
 import footOnBall from '../public/images/foot-on-ball.jpg'
 
-export default function About() {
+const About: NextPage = () => {
   return (
     <Layout>
       <div className="mx-10vw relative">
@@ -58,3 +58,5 @@ export default function About() {
     </Layout>
   )
 }
+
+export default About

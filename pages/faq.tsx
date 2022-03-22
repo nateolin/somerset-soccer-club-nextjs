@@ -1,6 +1,7 @@
+import type { NextPage } from 'next'
 import { Layout } from '../components/layout'
 
-export default function Faq() {
+const Faq: NextPage = () => {
   return (
     <Layout>
       <div className="mx-10vw relative">
@@ -97,3 +98,5 @@ export default function Faq() {
     </Layout>
   )
 }
+
+export default Faq
