@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
-import { Layout } from '../components/layout'
+import { Layout } from '../../components/layout'
 
-const Competitive: NextPage = () => {
+const Rec: NextPage = () => {
   return (
     <Layout>
       <div className="mx-10vw relative">
         <div className="relative mx-auto max-w-7xl">
           <div className="border-b">
             <h2 className="pb-8 text-4xl font-medium leading-tight text-black">
-              Competitive Program
+              Rec Program
             </h2>
           </div>
         </div>
@@ -20,15 +20,30 @@ const Competitive: NextPage = () => {
                   General Information
                 </h3>
                 <p className="pb-6 text-xl leading-tight text-black">
-                  Our Competitive Program is offered to both boys and girls
-                  playing in the spring/summer season or fall season. The
-                  Competitive Program provides the opportunity to be more
-                  competitive while offering advanced instruction, playing with
-                  your peers, the ability to play against teams from outside of
-                  Somerset. Practices are normally twice per week and teams will
-                  play 3-4 tournaments or jamborees
+                  Available to Junior Kindergarten through 5th grade - boys and
+                  girls
                 </p>
-
+                <p className="pb-6 text-xl leading-tight text-black">
+                  Our rec program is geared toward players who are interested in
+                  learning and developing their soccer skills. Our Rec program
+                  has two seasons - spring &amp; fall. Our format is broken into
+                  age-specific groups which will include skill development
+                  training sessions followed by scrimmages. Rec training
+                  sessions are held on Saturday mornings on Field #2 (HS Middle
+                  Field) located directly behind the District Learning Center.
+                </p>
+                <p className="pb-6 text-xl leading-tight text-black">
+                  Our Rec Program is an in-house program with the primary
+                  purpose to encourage participation, skill development, and
+                  provide an introduction to the beautiful game of futbol.
+                </p>
+                <p className="pb-6 text-xl leading-tight text-black">
+                  Recreation Seasons offered:
+                </p>
+                <ul className="list-disc px-12 pb-6 text-xl leading-tight text-black">
+                  <li>Five - six weeks in the Spring on Saturday mornings</li>
+                  <li>Five - six weeks in the Fall on Saturday mornings</li>
+                </ul>
                 <h3 className="pt-12 pb-6 text-3xl font-medium leading-tight text-black">
                   Detailed Information
                 </h3>
@@ -99,4 +114,4 @@ const Competitive: NextPage = () => {
   )
 }
 
-export default Competitive
+export default Rec
