@@ -29,13 +29,13 @@ const Home: NextPage = () => {
               >
                 <div className="mr-auto flex flex-col gap-4">
                   <a
-                    className="rounded-xl bg-red-700 py-4 px-6 text-center font-medium text-white hover:bg-red-800"
+                    className="rounded-xl bg-red-600 py-4 px-6 text-center font-medium text-white hover:bg-red-700"
                     href="/rec"
                   >
                     Rec Program
                   </a>
                   <a
-                    className="rounded-xl border border-red-800 bg-transparent py-4 px-6 font-medium text-red-700 hover:border-transparent hover:bg-red-800 hover:text-white"
+                    className="rounded-xl border border-red-700 bg-transparent py-4 px-6 font-medium text-red-700 hover:border-transparent hover:bg-red-700 hover:text-white"
                     href="/competitive"
                   >
                     Competitive Program
