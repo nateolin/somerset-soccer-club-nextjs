@@ -2,14 +2,11 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import FooterComponent from './footer'
 import HeaderComponent from './header'
+import { ChildrenPropType } from '../models/react-types'
 
 export const siteTitle = 'Somerset Soccer Club'
 
-interface AuxProps {
-  children: ReactNode
-}
-
-const Layout = ({ children }: AuxProps) => {
+const Layout = ({ children }: ChildrenPropType) => {
   return (
     <div className="md:container md:mx-auto">
       <Head>
