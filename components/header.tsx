@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
   AcademicCapIcon,
@@ -26,6 +26,8 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import Image from 'next/image'
+
+import { userService } from 'services'
 
 const solutions = [
   {
@@ -135,6 +137,17 @@ function classNames(...classes: string[]) {
 }
 
 export default function Example() {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const subscription = userService.user.subscribe((x) => setUser(x))
+    return () => subscription.unsubscribe()
+  }, [])
+
+  const logout = () => {
+    userService.logout()
+  }
+
   return (
     <Popover className="relative bg-white">
       <div className="mx-auto max-w-7xl px-4 pb-6 sm:pb-8">
@@ -450,18 +463,32 @@ export default function Example() {
               )}
             </Popover> */}
           </Popover.Group>
-          <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <Link href="account/login">
-              <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                Sign in
-              </a>
-            </Link>
-            <Link href="account/register">
-              <a className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700">
-                Register
-              </a>
-            </Link>
-          </div>
+          {!user && (
+            <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+              <Link href="account/login">
+                <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                  Sign in
+                </a>
+              </Link>
+              <Link href="account/register">
+                <a className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700">
+                  Register
+                </a>
+              </Link>
+            </div>
+          )}
+          {user && (
+            <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+              <Link href="account/login">
+                <a
+                  onClick={logout}
+                  className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700"
+                >
+                  Sign Out
+                </a>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
