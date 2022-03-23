@@ -10,10 +10,12 @@ import {
   ClipboardListIcon,
   CursorClickIcon,
   EmojiHappyIcon,
+  HandIcon,
   LightBulbIcon,
   MenuIcon,
   PhoneIcon,
   PlayIcon,
+  QuestionMarkCircleIcon,
   RefreshIcon,
   ShieldCheckIcon,
   SparklesIcon,
@@ -59,7 +61,7 @@ const programs = [
     icon: EmojiHappyIcon,
   },
   {
-    name: 'Youth Rec Program',
+    name: 'Rec Program',
     href: 'programs/rec',
     icon: LightBulbIcon,
   },
@@ -74,17 +76,17 @@ const more = [
   {
     name: 'Common Questions',
     href: 'common-questions',
-    icon: EmojiHappyIcon,
+    icon: QuestionMarkCircleIcon,
   },
   {
     name: 'Involvement',
     href: 'involvement',
-    icon: LightBulbIcon,
+    icon: ClipboardListIcon,
   },
   {
     name: 'Coaching',
     href: 'coaching',
-    icon: AcademicCapIcon,
+    icon: HandIcon,
   },
 ]
 
@@ -357,7 +359,7 @@ export default function Example() {
               Involvement
             </a> */}
 
-            <Popover className="relative">
+            {/* <Popover className="relative">
               {({ open }) => (
                 <>
                   <Popover.Button
@@ -446,21 +448,19 @@ export default function Example() {
                   </Transition>
                 </>
               )}
-            </Popover>
+            </Popover> */}
           </Popover.Group>
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-            <a
-              href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Sign in
-            </a>
-            <a
-              href="#"
-              className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700"
-            >
-              Register
-            </a>
+            <Link href="account/login">
+              <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                Sign in
+              </a>
+            </Link>
+            <Link href="account/register">
+              <a className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700">
+                Register
+              </a>
+            </Link>
           </div>
         </div>
       </div>
