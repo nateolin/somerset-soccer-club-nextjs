@@ -50,3 +50,8 @@ export enum State {
   WI = 'WI',
   WY = 'WY',
 }
+
+export enum Gender {
+  male = 'male',
+  female = 'female',
+}
