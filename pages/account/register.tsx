@@ -35,45 +35,74 @@ const Register = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email</label>
-        <input {...register('email', { required: true })} />
+      <form className="w-full max-w-lg" onSubmit={handleSubmit(onSubmit)}>
+        <div className="-mx-3 mb-6 flex flex-wrap">
+          <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+              First Name
+            </label>
+            <input
+              className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+              {...register('firstName', { required: true })}
+            />
+          </div>
+          <div className="w-full px-3 md:w-1/2">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+              Last Name
+            </label>
+            <input {...register('lastName', { required: true })} />
+          </div>
+          <div>
+            <label>Street Address</label>
+            <input {...register('streetAddress', { required: true })} />
 
-        <label>Phone Number</label>
-        <input {...register('phoneNumber', { required: true })} />
+            <label>City</label>
+            <input {...register('city', { required: true })} />
 
-        <label>First Name</label>
-        <input {...register('firstName', { required: true })} />
+            <label>State</label>
+            <input {...register('state', { required: true })} />
 
-        <label>Last Name</label>
-        <input {...register('lastName', { required: true })} />
+            <label>Zip Code</label>
+            <input {...register('zipCode', { required: true })} />
 
-        <label>Street Address</label>
-        <input {...register('streetAddress', { required: true })} />
+            <label>Email</label>
+            <input {...register('email', { required: true })} />
 
-        <label>City</label>
-        <input {...register('city', { required: true })} />
-
-        <label>State</label>
-        <input {...register('state', { required: true })} />
-
-        <label>Zip Code</label>
-        <input {...register('zipCode', { required: true })} />
+            <label>Phone Number</label>
+            <input {...register('phoneNumber', { required: true })} />
+          </div>
+        </div>
         <div>
           <label>Children</label>
-          {children.map((child) => (
+          {children.map((child, index) => (
             <div>
               <label>Child First Name</label>
-              <input {...register('childFirstName', { required: true })} />
+              <input
+                {...register(`children.${index}.childFirstName`, {
+                  required: true,
+                })}
+              />
 
               <label>Child Last Name</label>
-              <input {...register('childLastName', { required: true })} />
+              <input
+                {...register(`children.${index}.childLastName`, {
+                  required: true,
+                })}
+              />
 
               <label>Child Gender</label>
-              <input {...register('childGender', { required: true })} />
+              <input
+                {...register(`children.${index}.childGender`, {
+                  required: true,
+                })}
+              />
 
               <label>Child Birth Date</label>
-              <input {...register('childBirthDate', { required: true })} />
+              <input
+                {...register(`children.${index}.childBirthDate`, {
+                  required: true,
+                })}
+              />
             </div>
           ))}
         </div>
