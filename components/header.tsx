@@ -27,8 +27,6 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { userService } from 'services'
-
 const solutions = [
   {
     name: 'Mission',
@@ -139,14 +137,14 @@ function classNames(...classes: string[]) {
 export default function Example() {
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    const subscription = userService.user.subscribe((x) => setUser(x))
-    return () => subscription.unsubscribe()
-  }, [])
+  // useEffect(() => {
+  //   const subscription = userService.user.subscribe((x) => setUser(x))
+  //   return () => subscription.unsubscribe()
+  // }, [])
 
-  const logout = () => {
-    userService.logout()
-  }
+  // const logout = () => {
+  //   userService.logout()
+  // }
 
   return (
     <Popover className="relative bg-white">
