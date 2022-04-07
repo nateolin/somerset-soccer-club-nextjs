@@ -50,21 +50,49 @@ const Register = () => {
             <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
               Last Name
             </label>
-            <input {...register('lastName', { required: true })} />
+            <input
+              className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+              {...register('lastName', { required: true })}
+            />
           </div>
+          <div className="w-full px-3">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+              Street Address
+            </label>
+            <input
+              className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+              {...register('streetAddress', { required: true })}
+            />
+          </div>
+          <div className="w-full px-3">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+              City
+            </label>
+            <input
+              className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+              {...register('city', { required: true })}
+            />
+          </div>
+          <div className="w-full px-3 md:w-1/2">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+              State
+            </label>
+            <input
+              className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+              {...register('state', { required: true })}
+            />
+          </div>
+          <div className="w-full px-3 md:w-1/2">
+            <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+              Zip Code
+            </label>
+            <input
+              className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+              {...register('zipCode', { required: true })}
+            />
+          </div>
+
           <div>
-            <label>Street Address</label>
-            <input {...register('streetAddress', { required: true })} />
-
-            <label>City</label>
-            <input {...register('city', { required: true })} />
-
-            <label>State</label>
-            <input {...register('state', { required: true })} />
-
-            <label>Zip Code</label>
-            <input {...register('zipCode', { required: true })} />
-
             <label>Email</label>
             <input {...register('email', { required: true })} />
 
