@@ -2,9 +2,6 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
 const Dropdown = ({ dropdownOptions, defaultValue = '' }: any) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue)
 
