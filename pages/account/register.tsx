@@ -88,6 +88,7 @@ const Register = () => {
                 </label>
                 <Dropdown
                   dropdownOptions={State}
+                  defaultValue="WI"
                   // {...register('state', { required: true })}
                 />
               </div>
