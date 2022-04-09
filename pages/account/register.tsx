@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Layout } from '../../components/layout'
 import Dropdown from '../../components/tailwind-components/dropdown'
@@ -20,7 +21,7 @@ interface UserRegistration {
 interface Child {
   childFirstName: string
   childLastName: string
-  childGender: Gender
+  childGender: Gender | undefined
   childBirthDate: string
 }
 
@@ -31,7 +32,14 @@ const Register = () => {
     formState: { errors },
   } = useForm<UserRegistration>()
   const router = useRouter()
-  let children: Child[] = []
+  const [children, setChildren] = useState<Child[]>([
+    {
+      childFirstName: '',
+      childLastName: '',
+      childGender: undefined,
+      childBirthDate: '',
+    },
+  ])
 
   const onSubmit: SubmitHandler<UserRegistration> = (data) => console.log(data)
 
@@ -122,36 +130,48 @@ const Register = () => {
               </div>
             </div>
             <div>
-              <button>Add Children</button>
+              <h2 className="pb-8 text-xl font-medium leading-tight text-gray-700">
+                Children
+              </h2>
               {children.map((child, index) => (
-                <div>
-                  <label>Child First Name</label>
-                  <input
-                    {...register(`children.${index}.childFirstName`, {
-                      required: true,
-                    })}
-                  />
+                <div className="-mx-3 mb-6 flex flex-wrap">
+                  <div className="w-full px-3 md:w-1/2">
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+                      Child First Name
+                    </label>
+                    <input
+                      className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+                      {...register(`children.${index}.childFirstName`, {
+                        required: true,
+                      })}
+                    />
+                  </div>
+                  <div className="w-full px-3 md:w-1/2">
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+                      Child Last Name
+                    </label>
+                    <input
+                      className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+                      {...register(`children.${index}.childLastName`, {
+                        required: true,
+                      })}
+                    />
+                  </div>
+                  <div>
+                    <label>Child Gender</label>
+                    <input
+                      {...register(`children.${index}.childGender`, {
+                        required: true,
+                      })}
+                    />
 
-                  <label>Child Last Name</label>
-                  <input
-                    {...register(`children.${index}.childLastName`, {
-                      required: true,
-                    })}
-                  />
-
-                  <label>Child Gender</label>
-                  <input
-                    {...register(`children.${index}.childGender`, {
-                      required: true,
-                    })}
-                  />
-
-                  <label>Child Birth Date</label>
-                  <input
-                    {...register(`children.${index}.childBirthDate`, {
-                      required: true,
-                    })}
-                  />
+                    <label>Child Birth Date</label>
+                    <input
+                      {...register(`children.${index}.childBirthDate`, {
+                        required: true,
+                      })}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
