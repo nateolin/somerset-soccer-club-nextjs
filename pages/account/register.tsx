@@ -49,10 +49,10 @@ const Register = () => {
     <Layout>
       <div className="mx-10vw relative">
         <div className="lg: relative mx-auto mb-12 grid h-auto max-w-7xl place-items-center items-center pt-4 lg:min-h-[40rem]">
-          <h2 className="pb-8 text-3xl font-medium leading-tight text-gray-700">
-            Contact Information
-          </h2>
           <form className="w-full max-w-4xl" onSubmit={handleSubmit(onSubmit)}>
+            <h2 className="pb-8 text-2xl font-medium leading-tight text-gray-700">
+              Contact Information
+            </h2>
             <div className="-mx-3 mb-6 flex flex-wrap">
               <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
                 <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
@@ -130,7 +130,7 @@ const Register = () => {
               </div>
             </div>
             <div>
-              <h2 className="pb-8 text-xl font-medium leading-tight text-gray-700">
+              <h2 className="pb-8 text-2xl font-medium leading-tight text-gray-700">
                 Children
               </h2>
               {children.map((child, index) => (
