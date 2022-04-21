@@ -134,10 +134,13 @@ const Register = () => {
                 Children
               </h2>
               {children.map((child, index) => (
-                <div className="-mx-3 mb-6 flex flex-wrap">
+                <div
+                  key={`child${index}`}
+                  className="-mx-3 mb-6 flex flex-wrap"
+                >
                   <div className="w-full px-3 md:w-1/2">
                     <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                      Child First Name
+                      First Name
                     </label>
                     <input
                       className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
@@ -148,7 +151,7 @@ const Register = () => {
                   </div>
                   <div className="w-full px-3 md:w-1/2">
                     <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                      Child Last Name
+                      Last Name
                     </label>
                     <input
                       className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
@@ -157,16 +160,22 @@ const Register = () => {
                       })}
                     />
                   </div>
-                  <div>
-                    <label>Child Gender</label>
-                    <input
-                      {...register(`children.${index}.childGender`, {
-                        required: true,
-                      })}
+                  <div className="w-full px-3 md:w-1/2">
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+                      Gender
+                    </label>
+                    <Dropdown
+                      dropdownOptions={Gender}
+                      // {...register('state', { required: true })}
                     />
-
-                    <label>Child Birth Date</label>
+                  </div>
+                  <div className="w-full px-3 md:w-1/2">
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+                      Birth Date
+                    </label>
                     <input
+                      className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+                      placeholder="MM/DD/YYY"
                       {...register(`children.${index}.childBirthDate`, {
                         required: true,
                       })}
