@@ -12,7 +12,6 @@ const Layout = ({ children }: ChildrenPropType) => {
       <Head>
         <meta name="description" content="Somerset Soccer Club Website" />
         <meta name="og:title" content={siteTitle} />
-        <script defer src="/your-path-to-fontawesome/js/all.js"></script>
       </Head>
       <HeaderComponent />
       <main>{children}</main>
