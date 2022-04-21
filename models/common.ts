@@ -52,6 +52,6 @@ export enum State {
 }
 
 export enum Gender {
-  male = 'male',
-  female = 'female',
+  Male = 'Male',
+  Female = 'Female',
 }
