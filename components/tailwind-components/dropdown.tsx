@@ -9,7 +9,14 @@ const Dropdown = ({ dropdownOptions, defaultValue = '' }: any) => {
     <div>
       <Listbox value={selectedOption} onChange={setSelectedOption}>
         <div className="relative">
-          <Listbox.Button className="relative mb-3 w-full rounded border bg-white py-3 pl-3 pr-10 text-left leading-tight focus:outline-none">
+          <Listbox.Button
+            style={
+              !!selectedOption
+                ? { paddingTop: '11px', paddingBottom: '11px' }
+                : { paddingTop: '22px', paddingBottom: '22px' }
+            }
+            className="relative mb-3 w-full rounded border bg-white pl-3 pr-10 text-left leading-tight focus:outline-none"
+          >
             <span className="block truncate">{selectedOption}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <SelectorIcon
