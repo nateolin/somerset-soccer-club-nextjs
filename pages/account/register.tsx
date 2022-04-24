@@ -130,9 +130,12 @@ const Register = () => {
               </div>
             </div>
             <div>
-              <h2 className="pb-8 text-2xl font-medium leading-tight text-gray-700">
-                Children
-              </h2>
+              <div className="flex items-center py-8">
+                <h2 className="pr-6 text-2xl font-medium leading-tight text-gray-700">
+                  Child(ren)
+                </h2>
+                <button>Add Child</button>
+              </div>
               {children.map((child, index) => (
                 <div
                   key={`child${index}`}
