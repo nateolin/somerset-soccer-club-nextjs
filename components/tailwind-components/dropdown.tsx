@@ -12,8 +12,8 @@ const Dropdown = ({ dropdownOptions, defaultValue = '' }: any) => {
           <Listbox.Button
             style={
               !!selectedOption
-                ? { paddingTop: '11px', paddingBottom: '11px' }
-                : { paddingTop: '22px', paddingBottom: '22px' }
+                ? { paddingTop: '.6875rem', paddingBottom: '.6875rem' }
+                : { paddingTop: '1.375rem', paddingBottom: '1.375rem' }
             }
             className="relative mb-3 w-full rounded border bg-white pl-3 pr-10 text-left leading-tight focus:outline-none"
           >
