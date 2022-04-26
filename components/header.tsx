@@ -288,7 +288,7 @@ export default function Header() {
           {!user && (
             <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
               <Link href="/account/login">
-                <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                <a className="whitespace-nowrap rounded-md border border-red-600 px-4 py-2 text-base font-medium text-red-600 hover:border-red-700 hover:text-red-700 active:border-red-800 active:text-red-800 ">
                   Sign in
                 </a>
               </Link>
