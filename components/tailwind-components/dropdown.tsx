@@ -2,7 +2,12 @@ import { Fragment, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
-const Dropdown = ({ dropdownOptions, defaultValue = '' }: any) => {
+interface DropdownProps {
+  dropdownOptions: any
+  defaultValue?: string
+}
+
+const Dropdown = ({ dropdownOptions, defaultValue = '' }: DropdownProps) => {
   const [selectedOption, setSelectedOption] = useState(defaultValue)
 
   return (
