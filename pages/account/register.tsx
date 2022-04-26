@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { Layout } from '../../components/layout'
 import Dropdown from '../../components/tailwind-components/dropdown'
+import { InputWithLabel } from '../../components/tailwind-components/input'
 import { Gender, State } from '../../models/common'
 
-interface UserRegistration {
+export interface UserRegistration {
   email: string
   phoneNumber: string
   firstName: string
@@ -29,9 +30,12 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<UserRegistration>()
+
   const router = useRouter()
+
   const [children, setChildren] = useState<Child[]>([
     {
       childFirstName: '',
@@ -55,39 +59,36 @@ const Register = () => {
             </h2>
             <div className="-mx-3 mb-6 flex flex-wrap">
               <div className="mb-6 w-full px-3 md:mb-0 md:w-1/2">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                  First Name
-                </label>
-                <input
-                  className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
-                  {...register('firstName', { required: true })}
+                <InputWithLabel
+                  name="firstName"
+                  label="First Name"
+                  register={register}
+                  required
                 />
               </div>
+
               <div className="w-full px-3 md:w-1/2">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                  Last Name
-                </label>
-                <input
-                  className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
-                  {...register('lastName', { required: true })}
+                <InputWithLabel
+                  name="lastName"
+                  label="Last Name"
+                  register={register}
+                  required
                 />
               </div>
               <div className="w-full px-3">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                  Street Address
-                </label>
-                <input
-                  className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
-                  {...register('streetAddress', { required: true })}
+                <InputWithLabel
+                  name="streetAddress"
+                  label="Street Address"
+                  register={register}
+                  required
                 />
               </div>
               <div className="w-full px-3">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                  City
-                </label>
-                <input
-                  className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
-                  {...register('city', { required: true })}
+                <InputWithLabel
+                  name="city"
+                  label="City"
+                  register={register}
+                  required
                 />
               </div>
               <div className="w-full px-3 md:w-1/2">
@@ -101,12 +102,11 @@ const Register = () => {
                 />
               </div>
               <div className="w-full px-3 md:w-1/2">
-                <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                  Zip Code
-                </label>
-                <input
-                  className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
-                  {...register('zipCode', { required: true })}
+                <InputWithLabel
+                  name="zipCode"
+                  label="Zip Code"
+                  register={register}
+                  required
                 />
               </div>
 
@@ -134,7 +134,9 @@ const Register = () => {
                 <h2 className="pr-6 text-2xl font-medium leading-tight text-gray-700">
                   Child(ren)
                 </h2>
-                <button>Add Child</button>
+                <button className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-base font-medium text-cyan-700 hover:bg-cyan-100">
+                  Add Child
+                </button>
               </div>
               {children.map((child, index) => (
                 <div
@@ -142,11 +144,11 @@ const Register = () => {
                   className="-mx-3 mb-6 flex flex-wrap"
                 >
                   <div className="w-full px-3 md:w-1/2">
-                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700 ">
                       First Name
                     </label>
                     <input
-                      className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+                      className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                       {...register(`children.${index}.childFirstName`, {
                         required: true,
                       })}
@@ -177,7 +179,7 @@ const Register = () => {
                       Birth Date
                     </label>
                     <input
-                      className="mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 focus:outline-none"
+                      className=" mb-3 block w-full appearance-none rounded border py-3 px-4 leading-tight text-gray-800 placeholder:italic focus:outline-none"
                       placeholder="MM/DD/YYY"
                       {...register(`children.${index}.childBirthDate`, {
                         required: true,
