@@ -4,6 +4,7 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { Layout } from '../../components/layout'
 import Dropdown from '../../components/tailwind-components/dropdown'
 import { InputWithLabel } from '../../components/tailwind-components/input'
+import { TertiaryButton } from '../../components/tailwind-components/tertiaryButton'
 import { Gender, State } from '../../models/common'
 
 export interface UserRegistration {
@@ -130,13 +131,18 @@ const Register = () => {
               </div>
             </div>
             <div>
-              <div className="flex items-center py-8">
+              <div className="flex items-center py-6">
                 <h2 className="pr-6 text-2xl font-medium leading-tight text-gray-700">
                   Child(ren)
                 </h2>
-                <button className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-base font-medium text-cyan-700 hover:bg-cyan-100">
+                <TertiaryButton />
+                {/* <button
+                  data-mdb-ripple="true"
+                  data-mdb-ripple-color="light"
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-base font-medium text-cyan-700 hover:bg-cyan-100 hover:shadow-sm"
+                >
                   Add Child
-                </button>
+                </button> */}
               </div>
               {children.map((child, index) => (
                 <div
