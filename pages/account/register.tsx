@@ -21,7 +21,7 @@ export interface UserRegistration {
   children: Child[]
 }
 
-interface Child {
+export interface Child {
   childFirstName: string
   childLastName: string
   childGender: Gender | undefined
@@ -48,8 +48,6 @@ const Register = () => {
   ])
 
   const onSubmit: SubmitHandler<UserRegistration> = (data) => console.log(data)
-
-  // console.log(State)
 
   return (
     <Layout>
@@ -83,9 +81,10 @@ const Register = () => {
                   State
                 </label>
                 <Dropdown
+                  control={control}
+                  name="state"
+                  // rules={{ required: true }}
                   dropdownOptions={State}
-                  defaultValue="WI"
-                  // {...register('state', { required: true })}
                 />
               </div>
               <div className="w-full px-3 md:w-1/2">
@@ -141,8 +140,10 @@ const Register = () => {
                       Gender
                     </label>
                     <Dropdown
+                      control={control}
+                      name={`children.${index}.childGender`}
+                      rules={{ required: true }}
                       dropdownOptions={Gender}
-                      // {...register('state', { required: true })}
                     />
                   </div>
                   <div className="w-full px-3 md:w-1/2">

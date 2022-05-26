@@ -1,33 +1,33 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import { useController, UseControllerProps } from 'react-hook-form'
+import { UserRegistration } from '../../pages/account/register'
 
 interface DropdownProps {
   dropdownOptions: any
-  defaultValue?: string
 }
 
-const Dropdown = ({ dropdownOptions, defaultValue = '' }: DropdownProps) => {
-  const [selectedOption, setSelectedOption] = useState(defaultValue)
+const Dropdown = (props: DropdownProps & UseControllerProps<UserRegistration>) => {
+  const {
+    field: { value, onChange },
+  } = useController(props)
 
   return (
     <div>
-      <Listbox value={selectedOption} onChange={setSelectedOption}>
+      <Listbox value={value} onChange={onChange}>
         <div className="relative">
           <Listbox.Button
             style={
-              !!selectedOption
+              !!value
                 ? { paddingTop: '.6875rem', paddingBottom: '.6875rem' }
                 : { paddingTop: '1.375rem', paddingBottom: '1.375rem' }
             }
             className="relative mb-3 w-full rounded border bg-white pl-3 pr-10 text-left leading-tight focus:outline-none"
           >
-            <span className="block truncate">{selectedOption}</span>
+            <span className="block truncate">{value}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <SelectorIcon
-                className="h-5 w-5 text-gray-400"
-                aria-hidden="true"
-              />
+              <SelectorIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </span>
           </Listbox.Button>
           <Transition
@@ -37,7 +37,7 @@ const Dropdown = ({ dropdownOptions, defaultValue = '' }: DropdownProps) => {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-              {Object.keys(dropdownOptions).map((value, index) => (
+              {Object.keys(props.dropdownOptions).map((value, index) => (
                 <Listbox.Option
                   key={index}
                   className={({ active }) =>
@@ -50,9 +50,7 @@ const Dropdown = ({ dropdownOptions, defaultValue = '' }: DropdownProps) => {
                   {({ selected }) => (
                     <>
                       <span
-                        className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
-                        }`}
+                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}
                       >
                         {value}
                       </span>
