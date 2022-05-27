@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { Layout } from '../../components/layout'
 import Dropdown from '../../components/tailwind-components/dropdown'
 import { InputWithLabel } from '../../components/tailwind-components/input'
@@ -36,7 +36,7 @@ const Register = () => {
     formState: { errors },
   } = useForm<UserRegistration>()
 
-  const router = useRouter()
+  // const router = useRouter()
 
   const [children, setChildren] = useState<Child[]>([
     {
@@ -48,6 +48,22 @@ const Register = () => {
   ])
 
   const onSubmit: SubmitHandler<UserRegistration> = (data) => console.log(data)
+
+  const addChild = () => {
+    setChildren([
+      ...children,
+      {
+        childFirstName: '',
+        childLastName: '',
+        childGender: undefined,
+        childBirthDate: '',
+      },
+    ])
+  }
+
+  const logChildren = () => {
+    console.log(children)
+  }
 
   return (
     <Layout>
@@ -108,7 +124,8 @@ const Register = () => {
                 <h2 className="pr-6 text-2xl font-medium leading-tight text-gray-700">
                   Child(ren)
                 </h2>
-                <TertiaryButton />
+                <TertiaryButton text="Add Child" onClick={addChild} />
+                <TertiaryButton text="Log Children" onClick={logChildren} />
                 {/* <button
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
@@ -118,42 +135,48 @@ const Register = () => {
                 </button> */}
               </div>
               {children.map((child, index) => (
-                <div key={`child${index}`} className="-mx-3 mb-6 flex flex-wrap">
-                  <div className="w-full px-3 md:w-1/2">
-                    <InputWithLabel
-                      name={`children.${index}.childFirstName`}
-                      label="First Name"
-                      register={register}
-                      required
-                    />
-                  </div>
-                  <div className="w-full px-3 md:w-1/2">
-                    <InputWithLabel
-                      name={`children.${index}.childLastName`}
-                      label="Last Name"
-                      register={register}
-                      required
-                    />
-                  </div>
-                  <div className="w-full px-3 md:w-1/2">
-                    <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
-                      Gender
-                    </label>
-                    <Dropdown
-                      control={control}
-                      name={`children.${index}.childGender`}
-                      rules={{ required: true }}
-                      dropdownOptions={Gender}
-                    />
-                  </div>
-                  <div className="w-full px-3 md:w-1/2">
-                    <InputWithLabel
-                      name={`children.${index}.childBirthDate`}
-                      label="Birth Date"
-                      register={register}
-                      placeholder="MM/DD/YYYY"
-                      required
-                    />
+                <div>
+                  <h3 className="pb-3 text-xl font-medium leading-tight text-gray-700">
+                    Child {index + 1}
+                  </h3>
+
+                  <div key={`child${index}`} className="-mx-3 mb-6 flex flex-wrap">
+                    <div className="w-full px-3 md:w-1/2">
+                      <InputWithLabel
+                        name={`children.${index}.childFirstName`}
+                        label="First Name"
+                        register={register}
+                        required
+                      />
+                    </div>
+                    <div className="w-full px-3 md:w-1/2">
+                      <InputWithLabel
+                        name={`children.${index}.childLastName`}
+                        label="Last Name"
+                        register={register}
+                        required
+                      />
+                    </div>
+                    <div className="w-full px-3 md:w-1/2">
+                      <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700">
+                        Gender
+                      </label>
+                      <Dropdown
+                        control={control}
+                        name={`children.${index}.childGender`}
+                        rules={{ required: true }}
+                        dropdownOptions={Gender}
+                      />
+                    </div>
+                    <div className="w-full px-3 md:w-1/2">
+                      <InputWithLabel
+                        name={`children.${index}.childBirthDate`}
+                        label="Birth Date"
+                        register={register}
+                        placeholder="MM/DD/YYYY"
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
               ))}
