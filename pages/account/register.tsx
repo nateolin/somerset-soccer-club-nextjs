@@ -5,6 +5,7 @@ import { Layout } from '../../components/layout'
 import Dropdown from '../../components/tailwind-components/dropdown'
 import { InputWithLabel } from '../../components/tailwind-components/input'
 import { PrimaryButton } from '../../components/tailwind-components/primaryButton'
+import { SecondaryButton } from '../../components/tailwind-components/secondaryButton'
 import { TertiaryButton } from '../../components/tailwind-components/tertiaryButton'
 import { Gender, State } from '../../models/common'
 
@@ -59,6 +60,10 @@ const Register = () => {
         childBirthDate: '',
       },
     ])
+  }
+
+  const deleteChild = (index: number) => {
+    setChildren(children.filter((_, i) => i !== index))
   }
 
   const logChildren = () => {
@@ -120,27 +125,23 @@ const Register = () => {
               </div>
             </div>
             <div>
-              <div className="flex items-center py-6">
-                <h2 className="pr-6 text-2xl font-medium leading-tight text-gray-700">
-                  Child(ren)
-                </h2>
-                <TertiaryButton text="Add Child" onClick={addChild} />
-                <TertiaryButton text="Log Children" onClick={logChildren} />
-                {/* <button
-                  data-mdb-ripple="true"
-                  data-mdb-ripple-color="light"
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-base font-medium text-cyan-700 hover:bg-cyan-100 hover:shadow-sm"
-                >
-                  Add Child
-                </button> */}
+              <div className="flex items-center justify-between py-6">
+                <h2 className="text-2xl font-medium leading-tight text-gray-700">Child(ren)</h2>
+                <div className="">
+                  <TertiaryButton text="Add Another Child" onClick={addChild} />
+                </div>
               </div>
               {children.map((child, index) => (
-                <div>
-                  <h3 className="pb-3 text-xl font-medium leading-tight text-gray-700">
-                    Child {index + 1}
-                  </h3>
-
-                  <div key={`child${index}`} className="-mx-3 mb-6 flex flex-wrap">
+                <div key={`child${index}`}>
+                  <div className="inline-flex items-center gap-5 pb-3">
+                    <h3 className="pb-3 text-xl font-medium leading-tight text-gray-700">
+                      Child {index + 1}
+                    </h3>
+                    {index > 0 && (
+                      <SecondaryButton onClick={() => deleteChild(index)} text="Delete" />
+                    )}
+                  </div>
+                  <div className="-mx-3 mb-6 flex flex-wrap">
                     <div className="w-full px-3 md:w-1/2">
                       <InputWithLabel
                         name={`children.${index}.childFirstName`}
