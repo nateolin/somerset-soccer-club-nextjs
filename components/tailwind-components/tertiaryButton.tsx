@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
 
 interface TertiaryButtonProps {
   onClick: any
@@ -13,6 +13,7 @@ export const TertiaryButton = ({ onClick, text }: TertiaryButtonProps) => {
       focus:bg-cyan-100 focus:shadow-sm focus:outline-none focus:ring-0 active:bg-cyan-200 
       active:shadow-sm"
       onClick={onClick}
+      type="button"
     >
       {text}
     </button>
