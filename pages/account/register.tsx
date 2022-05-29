@@ -66,10 +66,6 @@ const Register = () => {
     setChildren(children.filter((_, i) => i !== index))
   }
 
-  const logChildren = () => {
-    console.log(children)
-  }
-
   return (
     <Layout>
       <div className="mx-10vw relative">
@@ -134,7 +130,7 @@ const Register = () => {
               {children.map((child, index) => (
                 <div key={`child${index}`}>
                   <div className="inline-flex items-center gap-5 pb-3">
-                    <h3 className="pb-3 text-xl font-medium leading-tight text-gray-700">
+                    <h3 className="pb-3 pt-3 text-xl font-medium leading-tight text-gray-700">
                       Child {index + 1}
                     </h3>
                     {index > 0 && (
